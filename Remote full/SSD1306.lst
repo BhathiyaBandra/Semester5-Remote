@@ -1,0 +1,505 @@
+   1               		.file	"SSD1306.cpp"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	_ZN7SSD130611sendCommandEh
+  18               	_ZN7SSD130611sendCommandEh:
+  19               	.LFB5:
+  20               	.LM1:
+  21               	.LVL0:
+  22 0000 FF92      		push r15
+  23 0002 0F93      		push r16
+  24 0004 1F93      		push r17
+  25               	/* prologue: function */
+  26               	/* frame size = 0 */
+  27 0006 182F      		mov r17,r24
+  28 0008 092F      		mov r16,r25
+  29               	.LVL1:
+  30 000a F62E      		mov r15,r22
+  31               	.LM2:
+  32 000c 0E94 0000 		call _ZN3I2C5startEv
+  33               	.LVL2:
+  34               	.LM3:
+  35 0010 812F      		mov r24,r17
+  36 0012 902F      		mov r25,r16
+  37 0014 60E0      		ldi r22,lo8(0)
+  38 0016 0E94 0000 		call _ZN3I2C5writeEh
+  39               	.LM4:
+  40 001a 812F      		mov r24,r17
+  41 001c 902F      		mov r25,r16
+  42 001e 6F2D      		mov r22,r15
+  43 0020 0E94 0000 		call _ZN3I2C5writeEh
+  44               	.LM5:
+  45 0024 812F      		mov r24,r17
+  46 0026 902F      		mov r25,r16
+  47 0028 0E94 0000 		call _ZN3I2C4stopEv
+  48               	/* epilogue start */
+  49               	.LM6:
+  50 002c 1F91      		pop r17
+  51               	.LVL3:
+  52 002e 0F91      		pop r16
+  53               	.LVL4:
+  54 0030 FF90      		pop r15
+  55               	.LVL5:
+  56 0032 0895      		ret
+  57               	.LFE5:
+  59               	.global	_ZN7SSD13066invertEh
+  61               	_ZN7SSD13066invertEh:
+  62               	.LFB6:
+  63               	.LM7:
+  64               	.LVL6:
+  65               	/* prologue: function */
+  66               	/* frame size = 0 */
+  67               	.LM8:
+  68 0034 6623      		tst r22
+  69 0036 01F0      		breq .L4
+  70               	.LM9:
+  71 0038 67EA      		ldi r22,lo8(-89)
+  72               	.LVL7:
+  73 003a 00C0      		rjmp .L7
+  74               	.LVL8:
+  75               	.L4:
+  76               	.LM10:
+  77 003c 66EA      		ldi r22,lo8(-90)
+  78               	.LVL9:
+  79               	.L7:
+  80 003e 0E94 0000 		call _ZN7SSD130611sendCommandEh
+  81               	.LVL10:
+  82 0042 0895      		ret
+  83               	.LFE6:
+  85               	.global	_ZN7SSD130615sendFramebufferEPh
+  87               	_ZN7SSD130615sendFramebufferEPh:
+  88               	.LFB7:
+  89               	.LM11:
+  90               	.LVL11:
+  91 0044 CF92      		push r12
+  92 0046 DF92      		push r13
+  93 0048 EF92      		push r14
+  94 004a FF92      		push r15
+  95 004c 0F93      		push r16
+  96 004e 1F93      		push r17
+  97 0050 CF93      		push r28
+  98 0052 DF93      		push r29
+  99               	/* prologue: function */
+ 100               	/* frame size = 0 */
+ 101 0054 6C01      		movw r12,r24
+ 102               	.LVL12:
+ 103 0056 162F      		mov r17,r22
+ 104 0058 072F      		mov r16,r23
+ 105               	.LVL13:
+ 106               	.LBB2:
+ 107               	.LM12:
+ 108 005a 61E2      		ldi r22,lo8(33)
+ 109               	.LVL14:
+ 110 005c 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 111               	.LVL15:
+ 112               	.LM13:
+ 113 0060 C601      		movw r24,r12
+ 114 0062 60E0      		ldi r22,lo8(0)
+ 115 0064 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 116               	.LM14:
+ 117 0068 C601      		movw r24,r12
+ 118 006a 6FE7      		ldi r22,lo8(127)
+ 119 006c 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 120               	.LM15:
+ 121 0070 C601      		movw r24,r12
+ 122 0072 62E2      		ldi r22,lo8(34)
+ 123 0074 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 124               	.LM16:
+ 125 0078 C601      		movw r24,r12
+ 126 007a 60E0      		ldi r22,lo8(0)
+ 127 007c 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 128               	.LM17:
+ 129 0080 C601      		movw r24,r12
+ 130 0082 67E0      		ldi r22,lo8(7)
+ 131 0084 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 132               	.LBB3:
+ 133               	.LM18:
+ 134 0088 212F      		mov r18,r17
+ 135 008a 302F      		mov r19,r16
+ 136 008c C901      		movw r24,r18
+ 137 008e EC01      		movw r28,r24
+ 138 0090 00E0      		ldi r16,lo8(0)
+ 139               	.LVL16:
+ 140               	.L10:
+ 141 0092 C601      		movw r24,r12
+ 142 0094 0E94 0000 		call _ZN3I2C5startEv
+ 143               	.LM19:
+ 144 0098 C601      		movw r24,r12
+ 145 009a 60E4      		ldi r22,lo8(64)
+ 146 009c 0E94 0000 		call _ZN3I2C5writeEh
+ 147 00a0 7E01      		movw r14,r28
+ 148 00a2 10E0      		ldi r17,lo8(0)
+ 149               	.LVL17:
+ 150               	.L9:
+ 151               	.LBB4:
+ 152               	.LM20:
+ 153 00a4 C601      		movw r24,r12
+ 154 00a6 F701      		movw r30,r14
+ 155 00a8 6191      		ld r22,Z+
+ 156 00aa 7F01      		movw r14,r30
+ 157 00ac 0E94 0000 		call _ZN3I2C5writeEh
+ 158               	.LM21:
+ 159 00b0 1F5F      		subi r17,lo8(-(1))
+ 160 00b2 1031      		cpi r17,lo8(16)
+ 161 00b4 01F4      		brne .L9
+ 162               	.LBE4:
+ 163               	.LM22:
+ 164 00b6 C601      		movw r24,r12
+ 165 00b8 0E94 0000 		call _ZN3I2C4stopEv
+ 166               	.LM23:
+ 167 00bc 0F5F      		subi r16,lo8(-(1))
+ 168 00be 6096      		adiw r28,16
+ 169 00c0 0034      		cpi r16,lo8(64)
+ 170 00c2 01F4      		brne .L10
+ 171               	/* epilogue start */
+ 172               	.LBE3:
+ 173               	.LBE2:
+ 174               	.LM24:
+ 175 00c4 DF91      		pop r29
+ 176 00c6 CF91      		pop r28
+ 177 00c8 1F91      		pop r17
+ 178               	.LVL18:
+ 179 00ca 0F91      		pop r16
+ 180               	.LVL19:
+ 181 00cc FF90      		pop r15
+ 182 00ce EF90      		pop r14
+ 183 00d0 DF90      		pop r13
+ 184 00d2 CF90      		pop r12
+ 185 00d4 0895      		ret
+ 186               	.LFE7:
+ 188               	.global	_ZN7SSD1306C1Ev
+ 190               	_ZN7SSD1306C1Ev:
+ 191               	.LFB4:
+ 192               	.LM25:
+ 193               	.LVL20:
+ 194 00d6 0F93      		push r16
+ 195 00d8 1F93      		push r17
+ 196               	/* prologue: function */
+ 197               	/* frame size = 0 */
+ 198 00da 182F      		mov r17,r24
+ 199 00dc 092F      		mov r16,r25
+ 200               	.LVL21:
+ 201               	.LBB5:
+ 202               	.LM26:
+ 203 00de 0E94 0000 		call _ZN3I2CC1Ev
+ 204               	.LVL22:
+ 205               	.LM27:
+ 206 00e2 812F      		mov r24,r17
+ 207 00e4 902F      		mov r25,r16
+ 208 00e6 68E7      		ldi r22,lo8(120)
+ 209 00e8 0E94 0000 		call _ZN3I2C4initEh
+ 210               	.LM28:
+ 211 00ec 812F      		mov r24,r17
+ 212 00ee 902F      		mov r25,r16
+ 213 00f0 6EEA      		ldi r22,lo8(-82)
+ 214 00f2 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 215               	.LM29:
+ 216 00f6 812F      		mov r24,r17
+ 217 00f8 902F      		mov r25,r16
+ 218 00fa 65ED      		ldi r22,lo8(-43)
+ 219 00fc 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 220               	.LM30:
+ 221 0100 812F      		mov r24,r17
+ 222 0102 902F      		mov r25,r16
+ 223 0104 60E8      		ldi r22,lo8(-128)
+ 224 0106 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 225               	.LM31:
+ 226 010a 812F      		mov r24,r17
+ 227 010c 902F      		mov r25,r16
+ 228 010e 68EA      		ldi r22,lo8(-88)
+ 229 0110 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 230               	.LM32:
+ 231 0114 812F      		mov r24,r17
+ 232 0116 902F      		mov r25,r16
+ 233 0118 6FE3      		ldi r22,lo8(63)
+ 234 011a 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 235               	.LM33:
+ 236 011e 812F      		mov r24,r17
+ 237 0120 902F      		mov r25,r16
+ 238 0122 63ED      		ldi r22,lo8(-45)
+ 239 0124 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 240               	.LM34:
+ 241 0128 812F      		mov r24,r17
+ 242 012a 902F      		mov r25,r16
+ 243 012c 60E0      		ldi r22,lo8(0)
+ 244 012e 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 245               	.LM35:
+ 246 0132 812F      		mov r24,r17
+ 247 0134 902F      		mov r25,r16
+ 248 0136 60E4      		ldi r22,lo8(64)
+ 249 0138 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 250               	.LM36:
+ 251 013c 812F      		mov r24,r17
+ 252 013e 902F      		mov r25,r16
+ 253 0140 6DE8      		ldi r22,lo8(-115)
+ 254 0142 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 255               	.LM37:
+ 256 0146 812F      		mov r24,r17
+ 257 0148 902F      		mov r25,r16
+ 258 014a 64E1      		ldi r22,lo8(20)
+ 259 014c 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 260               	.LM38:
+ 261 0150 812F      		mov r24,r17
+ 262 0152 902F      		mov r25,r16
+ 263 0154 60E2      		ldi r22,lo8(32)
+ 264 0156 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 265               	.LM39:
+ 266 015a 812F      		mov r24,r17
+ 267 015c 902F      		mov r25,r16
+ 268 015e 60E0      		ldi r22,lo8(0)
+ 269 0160 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 270               	.LM40:
+ 271 0164 812F      		mov r24,r17
+ 272 0166 902F      		mov r25,r16
+ 273 0168 61EA      		ldi r22,lo8(-95)
+ 274 016a 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 275               	.LM41:
+ 276 016e 812F      		mov r24,r17
+ 277 0170 902F      		mov r25,r16
+ 278 0172 68EC      		ldi r22,lo8(-56)
+ 279 0174 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 280               	.LM42:
+ 281 0178 812F      		mov r24,r17
+ 282 017a 902F      		mov r25,r16
+ 283 017c 6AED      		ldi r22,lo8(-38)
+ 284 017e 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 285               	.LM43:
+ 286 0182 812F      		mov r24,r17
+ 287 0184 902F      		mov r25,r16
+ 288 0186 62E1      		ldi r22,lo8(18)
+ 289 0188 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 290               	.LM44:
+ 291 018c 812F      		mov r24,r17
+ 292 018e 902F      		mov r25,r16
+ 293 0190 61E8      		ldi r22,lo8(-127)
+ 294 0192 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 295               	.LM45:
+ 296 0196 812F      		mov r24,r17
+ 297 0198 902F      		mov r25,r16
+ 298 019a 6FEC      		ldi r22,lo8(-49)
+ 299 019c 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 300               	.LM46:
+ 301 01a0 812F      		mov r24,r17
+ 302 01a2 902F      		mov r25,r16
+ 303 01a4 69ED      		ldi r22,lo8(-39)
+ 304 01a6 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 305               	.LM47:
+ 306 01aa 812F      		mov r24,r17
+ 307 01ac 902F      		mov r25,r16
+ 308 01ae 61EF      		ldi r22,lo8(-15)
+ 309 01b0 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 310               	.LM48:
+ 311 01b4 812F      		mov r24,r17
+ 312 01b6 902F      		mov r25,r16
+ 313 01b8 6BED      		ldi r22,lo8(-37)
+ 314 01ba 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 315               	.LM49:
+ 316 01be 812F      		mov r24,r17
+ 317 01c0 902F      		mov r25,r16
+ 318 01c2 60E4      		ldi r22,lo8(64)
+ 319 01c4 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 320               	.LM50:
+ 321 01c8 812F      		mov r24,r17
+ 322 01ca 902F      		mov r25,r16
+ 323 01cc 64EA      		ldi r22,lo8(-92)
+ 324 01ce 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 325               	.LM51:
+ 326 01d2 812F      		mov r24,r17
+ 327 01d4 902F      		mov r25,r16
+ 328 01d6 66EA      		ldi r22,lo8(-90)
+ 329 01d8 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 330               	.LM52:
+ 331 01dc 812F      		mov r24,r17
+ 332 01de 902F      		mov r25,r16
+ 333 01e0 6FEA      		ldi r22,lo8(-81)
+ 334 01e2 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 335               	/* epilogue start */
+ 336               	.LBE5:
+ 337               	.LM53:
+ 338 01e6 1F91      		pop r17
+ 339               	.LVL23:
+ 340 01e8 0F91      		pop r16
+ 341               	.LVL24:
+ 342 01ea 0895      		ret
+ 343               	.LFE4:
+ 345               	.global	_ZN7SSD1306C2Ev
+ 347               	_ZN7SSD1306C2Ev:
+ 348               	.LFB3:
+ 349               	.LM54:
+ 350               	.LVL25:
+ 351 01ec 0F93      		push r16
+ 352 01ee 1F93      		push r17
+ 353               	/* prologue: function */
+ 354               	/* frame size = 0 */
+ 355 01f0 182F      		mov r17,r24
+ 356 01f2 092F      		mov r16,r25
+ 357               	.LVL26:
+ 358               	.LBB6:
+ 359               	.LM55:
+ 360 01f4 0E94 0000 		call _ZN3I2CC1Ev
+ 361               	.LVL27:
+ 362               	.LM56:
+ 363 01f8 812F      		mov r24,r17
+ 364 01fa 902F      		mov r25,r16
+ 365 01fc 68E7      		ldi r22,lo8(120)
+ 366 01fe 0E94 0000 		call _ZN3I2C4initEh
+ 367               	.LM57:
+ 368 0202 812F      		mov r24,r17
+ 369 0204 902F      		mov r25,r16
+ 370 0206 6EEA      		ldi r22,lo8(-82)
+ 371 0208 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 372               	.LM58:
+ 373 020c 812F      		mov r24,r17
+ 374 020e 902F      		mov r25,r16
+ 375 0210 65ED      		ldi r22,lo8(-43)
+ 376 0212 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 377               	.LM59:
+ 378 0216 812F      		mov r24,r17
+ 379 0218 902F      		mov r25,r16
+ 380 021a 60E8      		ldi r22,lo8(-128)
+ 381 021c 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 382               	.LM60:
+ 383 0220 812F      		mov r24,r17
+ 384 0222 902F      		mov r25,r16
+ 385 0224 68EA      		ldi r22,lo8(-88)
+ 386 0226 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 387               	.LM61:
+ 388 022a 812F      		mov r24,r17
+ 389 022c 902F      		mov r25,r16
+ 390 022e 6FE3      		ldi r22,lo8(63)
+ 391 0230 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 392               	.LM62:
+ 393 0234 812F      		mov r24,r17
+ 394 0236 902F      		mov r25,r16
+ 395 0238 63ED      		ldi r22,lo8(-45)
+ 396 023a 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 397               	.LM63:
+ 398 023e 812F      		mov r24,r17
+ 399 0240 902F      		mov r25,r16
+ 400 0242 60E0      		ldi r22,lo8(0)
+ 401 0244 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 402               	.LM64:
+ 403 0248 812F      		mov r24,r17
+ 404 024a 902F      		mov r25,r16
+ 405 024c 60E4      		ldi r22,lo8(64)
+ 406 024e 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 407               	.LM65:
+ 408 0252 812F      		mov r24,r17
+ 409 0254 902F      		mov r25,r16
+ 410 0256 6DE8      		ldi r22,lo8(-115)
+ 411 0258 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 412               	.LM66:
+ 413 025c 812F      		mov r24,r17
+ 414 025e 902F      		mov r25,r16
+ 415 0260 64E1      		ldi r22,lo8(20)
+ 416 0262 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 417               	.LM67:
+ 418 0266 812F      		mov r24,r17
+ 419 0268 902F      		mov r25,r16
+ 420 026a 60E2      		ldi r22,lo8(32)
+ 421 026c 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 422               	.LM68:
+ 423 0270 812F      		mov r24,r17
+ 424 0272 902F      		mov r25,r16
+ 425 0274 60E0      		ldi r22,lo8(0)
+ 426 0276 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 427               	.LM69:
+ 428 027a 812F      		mov r24,r17
+ 429 027c 902F      		mov r25,r16
+ 430 027e 61EA      		ldi r22,lo8(-95)
+ 431 0280 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 432               	.LM70:
+ 433 0284 812F      		mov r24,r17
+ 434 0286 902F      		mov r25,r16
+ 435 0288 68EC      		ldi r22,lo8(-56)
+ 436 028a 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 437               	.LM71:
+ 438 028e 812F      		mov r24,r17
+ 439 0290 902F      		mov r25,r16
+ 440 0292 6AED      		ldi r22,lo8(-38)
+ 441 0294 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 442               	.LM72:
+ 443 0298 812F      		mov r24,r17
+ 444 029a 902F      		mov r25,r16
+ 445 029c 62E1      		ldi r22,lo8(18)
+ 446 029e 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 447               	.LM73:
+ 448 02a2 812F      		mov r24,r17
+ 449 02a4 902F      		mov r25,r16
+ 450 02a6 61E8      		ldi r22,lo8(-127)
+ 451 02a8 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 452               	.LM74:
+ 453 02ac 812F      		mov r24,r17
+ 454 02ae 902F      		mov r25,r16
+ 455 02b0 6FEC      		ldi r22,lo8(-49)
+ 456 02b2 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 457               	.LM75:
+ 458 02b6 812F      		mov r24,r17
+ 459 02b8 902F      		mov r25,r16
+ 460 02ba 69ED      		ldi r22,lo8(-39)
+ 461 02bc 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 462               	.LM76:
+ 463 02c0 812F      		mov r24,r17
+ 464 02c2 902F      		mov r25,r16
+ 465 02c4 61EF      		ldi r22,lo8(-15)
+ 466 02c6 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 467               	.LM77:
+ 468 02ca 812F      		mov r24,r17
+ 469 02cc 902F      		mov r25,r16
+ 470 02ce 6BED      		ldi r22,lo8(-37)
+ 471 02d0 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 472               	.LM78:
+ 473 02d4 812F      		mov r24,r17
+ 474 02d6 902F      		mov r25,r16
+ 475 02d8 60E4      		ldi r22,lo8(64)
+ 476 02da 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 477               	.LM79:
+ 478 02de 812F      		mov r24,r17
+ 479 02e0 902F      		mov r25,r16
+ 480 02e2 64EA      		ldi r22,lo8(-92)
+ 481 02e4 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 482               	.LM80:
+ 483 02e8 812F      		mov r24,r17
+ 484 02ea 902F      		mov r25,r16
+ 485 02ec 66EA      		ldi r22,lo8(-90)
+ 486 02ee 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 487               	.LM81:
+ 488 02f2 812F      		mov r24,r17
+ 489 02f4 902F      		mov r25,r16
+ 490 02f6 6FEA      		ldi r22,lo8(-81)
+ 491 02f8 0E94 0000 		call _ZN7SSD130611sendCommandEh
+ 492               	/* epilogue start */
+ 493               	.LBE6:
+ 494               	.LM82:
+ 495 02fc 1F91      		pop r17
+ 496               	.LVL28:
+ 497 02fe 0F91      		pop r16
+ 498               	.LVL29:
+ 499 0300 0895      		ret
+ 500               	.LFE3:
+ 558               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 SSD1306.cpp
+C:\Users\BHATHI~1\AppData\Local\Temp/cc3afQwf.s:2      *ABS*:0000003f __SREG__
+C:\Users\BHATHI~1\AppData\Local\Temp/cc3afQwf.s:3      *ABS*:0000003e __SP_H__
+C:\Users\BHATHI~1\AppData\Local\Temp/cc3afQwf.s:4      *ABS*:0000003d __SP_L__
+C:\Users\BHATHI~1\AppData\Local\Temp/cc3afQwf.s:5      *ABS*:00000034 __CCP__
+C:\Users\BHATHI~1\AppData\Local\Temp/cc3afQwf.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\BHATHI~1\AppData\Local\Temp/cc3afQwf.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\BHATHI~1\AppData\Local\Temp/cc3afQwf.s:18     .text:00000000 _ZN7SSD130611sendCommandEh
+C:\Users\BHATHI~1\AppData\Local\Temp/cc3afQwf.s:61     .text:00000034 _ZN7SSD13066invertEh
+C:\Users\BHATHI~1\AppData\Local\Temp/cc3afQwf.s:87     .text:00000044 _ZN7SSD130615sendFramebufferEPh
+C:\Users\BHATHI~1\AppData\Local\Temp/cc3afQwf.s:190    .text:000000d6 _ZN7SSD1306C1Ev
+C:\Users\BHATHI~1\AppData\Local\Temp/cc3afQwf.s:347    .text:000001ec _ZN7SSD1306C2Ev
+
+UNDEFINED SYMBOLS
+_ZN3I2C5startEv
+_ZN3I2C5writeEh
+_ZN3I2C4stopEv
+_ZN3I2CC1Ev
+_ZN3I2C4initEh

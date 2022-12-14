@@ -1,0 +1,258 @@
+   1               		.file	"I2C.cpp"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	_ZN3I2CC2Ev
+  18               	_ZN3I2CC2Ev:
+  19               	.LFB3:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	/* epilogue start */
+  25               	.LM2:
+  26 0000 0895      		ret
+  27               	.LFE3:
+  29               	.global	_ZN3I2CC1Ev
+  31               	_ZN3I2CC1Ev:
+  32               	.LFB4:
+  33               	.LM3:
+  34               	.LVL1:
+  35               	/* prologue: function */
+  36               	/* frame size = 0 */
+  37               	/* epilogue start */
+  38               	.LM4:
+  39 0002 0895      		ret
+  40               	.LFE4:
+  42               	.global	_ZN3I2C4initEh
+  44               	_ZN3I2C4initEh:
+  45               	.LFB5:
+  46               	.LM5:
+  47               	.LVL2:
+  48               	/* prologue: function */
+  49               	/* frame size = 0 */
+  50 0004 FC01      		movw r30,r24
+  51               	.LM6:
+  52 0006 6083      		st Z,r22
+  53               	.LM7:
+  54 0008 1092 B900 		sts 185,__zero_reg__
+  55               	.LM8:
+  56 000c 80E2      		ldi r24,lo8(32)
+  57               	.LVL3:
+  58 000e 8093 B800 		sts 184,r24
+  59               	/* epilogue start */
+  60               	.LM9:
+  61 0012 0895      		ret
+  62               	.LFE5:
+  64               	.global	_ZN3I2C5startEv
+  66               	_ZN3I2C5startEv:
+  67               	.LFB6:
+  68               	.LM10:
+  69               	.LVL4:
+  70               	/* prologue: function */
+  71               	/* frame size = 0 */
+  72 0014 FC01      		movw r30,r24
+  73               	.LM11:
+  74 0016 84EA      		ldi r24,lo8(-92)
+  75               	.LVL5:
+  76 0018 8093 BC00 		sts 188,r24
+  77               	.L8:
+  78               	.LM12:
+  79 001c 8091 BC00 		lds r24,188
+  80 0020 87FF      		sbrs r24,7
+  81 0022 00C0      		rjmp .L8
+  82               	.LM13:
+  83 0024 8091 B900 		lds r24,185
+  84 0028 887F      		andi r24,lo8(-8)
+  85 002a 8183      		std Z+1,r24
+  86               	.LM14:
+  87 002c 8830      		cpi r24,lo8(8)
+  88 002e 01F0      		breq .L9
+  89 0030 8031      		cpi r24,lo8(16)
+  90 0032 01F0      		breq .L9
+  91 0034 81E0      		ldi r24,lo8(1)
+  92 0036 0895      		ret
+  93               	.L9:
+  94               	.LM15:
+  95 0038 8081      		ld r24,Z
+  96 003a 8093 BB00 		sts 187,r24
+  97               	.LM16:
+  98 003e 84E8      		ldi r24,lo8(-124)
+  99 0040 8093 BC00 		sts 188,r24
+ 100               	.L11:
+ 101               	.LM17:
+ 102 0044 8091 BC00 		lds r24,188
+ 103 0048 87FF      		sbrs r24,7
+ 104 004a 00C0      		rjmp .L11
+ 105               	.LM18:
+ 106 004c 9091 B900 		lds r25,185
+ 107 0050 987F      		andi r25,lo8(-8)
+ 108 0052 9183      		std Z+1,r25
+ 109               	.LM19:
+ 110 0054 9831      		cpi r25,lo8(24)
+ 111 0056 01F4      		brne .L12
+ 112 0058 80E0      		ldi r24,lo8(0)
+ 113 005a 0895      		ret
+ 114               	.L12:
+ 115 005c 80E0      		ldi r24,lo8(0)
+ 116 005e 9034      		cpi r25,lo8(64)
+ 117 0060 01F0      		breq .L10
+ 118 0062 81E0      		ldi r24,lo8(1)
+ 119               	.L10:
+ 120               	.LM20:
+ 121 0064 0895      		ret
+ 122               	.LFE6:
+ 124               	.global	_ZN3I2C5writeEh
+ 126               	_ZN3I2C5writeEh:
+ 127               	.LFB7:
+ 128               	.LM21:
+ 129               	.LVL6:
+ 130               	/* prologue: function */
+ 131               	/* frame size = 0 */
+ 132 0066 FC01      		movw r30,r24
+ 133               	.LM22:
+ 134 0068 6093 BB00 		sts 187,r22
+ 135               	.LM23:
+ 136 006c 84E8      		ldi r24,lo8(-124)
+ 137               	.LVL7:
+ 138 006e 8093 BC00 		sts 188,r24
+ 139               	.L18:
+ 140               	.LM24:
+ 141 0072 8091 BC00 		lds r24,188
+ 142 0076 87FF      		sbrs r24,7
+ 143 0078 00C0      		rjmp .L18
+ 144               	.LM25:
+ 145 007a 8091 B900 		lds r24,185
+ 146 007e 887F      		andi r24,lo8(-8)
+ 147 0080 8183      		std Z+1,r24
+ 148 0082 90E0      		ldi r25,lo8(0)
+ 149 0084 8832      		cpi r24,lo8(40)
+ 150 0086 01F0      		breq .L19
+ 151 0088 91E0      		ldi r25,lo8(1)
+ 152               	.L19:
+ 153               	.LM26:
+ 154 008a 892F      		mov r24,r25
+ 155               	/* epilogue start */
+ 156 008c 0895      		ret
+ 157               	.LFE7:
+ 159               	.global	_ZN3I2C4stopEv
+ 161               	_ZN3I2C4stopEv:
+ 162               	.LFB8:
+ 163               	.LM27:
+ 164               	.LVL8:
+ 165               	/* prologue: function */
+ 166               	/* frame size = 0 */
+ 167               	.LM28:
+ 168 008e 84E9      		ldi r24,lo8(-108)
+ 169               	.LVL9:
+ 170 0090 8093 BC00 		sts 188,r24
+ 171               	.L23:
+ 172               	.LM29:
+ 173 0094 8091 BC00 		lds r24,188
+ 174 0098 84FD      		sbrc r24,4
+ 175 009a 00C0      		rjmp .L23
+ 176               	/* epilogue start */
+ 177               	.LM30:
+ 178 009c 0895      		ret
+ 179               	.LFE8:
+ 181               	.global	_ZN3I2C4ReadEh
+ 183               	_ZN3I2C4ReadEh:
+ 184               	.LFB9:
+ 185               	.LM31:
+ 186               	.LVL10:
+ 187               	/* prologue: function */
+ 188               	/* frame size = 0 */
+ 189               	.LM32:
+ 190 009e 6295      		swap r22
+ 191               	.LVL11:
+ 192 00a0 660F      		lsl r22
+ 193 00a2 660F      		lsl r22
+ 194 00a4 607C      		andi r22,lo8(-64)
+ 195 00a6 6468      		ori r22,lo8(-124)
+ 196 00a8 6093 BC00 		sts 188,r22
+ 197               	.L27:
+ 198               	.LM33:
+ 199 00ac 8091 BC00 		lds r24,188
+ 200               	.LVL12:
+ 201 00b0 87FF      		sbrs r24,7
+ 202 00b2 00C0      		rjmp .L27
+ 203               	.LM34:
+ 204 00b4 8091 BB00 		lds r24,187
+ 205               	/* epilogue start */
+ 206               	.LM35:
+ 207 00b8 0895      		ret
+ 208               	.LFE9:
+ 210               	.global	_Z11I2CReadBytePhh
+ 212               	_Z11I2CReadBytePhh:
+ 213               	.LFB10:
+ 214               	.LM36:
+ 215               	.LVL13:
+ 216               	/* prologue: function */
+ 217               	/* frame size = 0 */
+ 218 00ba FC01      		movw r30,r24
+ 219               	.LM37:
+ 220 00bc 6623      		tst r22
+ 221 00be 01F0      		breq .L31
+ 222               	.LVL14:
+ 223               	.LM38:
+ 224 00c0 8091 BC00 		lds r24,188
+ 225 00c4 8064      		ori r24,lo8(64)
+ 226 00c6 00C0      		rjmp .L38
+ 227               	.LVL15:
+ 228               	.L31:
+ 229               	.LM39:
+ 230 00c8 8091 BC00 		lds r24,188
+ 231 00cc 8F7B      		andi r24,lo8(-65)
+ 232               	.L38:
+ 233 00ce 8093 BC00 		sts 188,r24
+ 234               	.LM40:
+ 235 00d2 8091 BC00 		lds r24,188
+ 236 00d6 8068      		ori r24,lo8(-128)
+ 237 00d8 8093 BC00 		sts 188,r24
+ 238               	.L33:
+ 239               	.LM41:
+ 240 00dc 8091 BC00 		lds r24,188
+ 241 00e0 87FF      		sbrs r24,7
+ 242 00e2 00C0      		rjmp .L33
+ 243               	.LM42:
+ 244 00e4 8091 B900 		lds r24,185
+ 245 00e8 887F      		andi r24,lo8(-8)
+ 246 00ea 8835      		cpi r24,lo8(88)
+ 247 00ec 01F0      		breq .L34
+ 248 00ee 8091 B900 		lds r24,185
+ 249 00f2 887F      		andi r24,lo8(-8)
+ 250 00f4 8035      		cpi r24,lo8(80)
+ 251 00f6 01F0      		breq .L34
+ 252 00f8 80E0      		ldi r24,lo8(0)
+ 253 00fa 0895      		ret
+ 254               	.L34:
+ 255               	.LM43:
+ 256 00fc 8091 BB00 		lds r24,187
+ 257 0100 8083      		st Z,r24
+ 258 0102 81E0      		ldi r24,lo8(1)
+ 259               	.LM44:
+ 260 0104 0895      		ret
+ 261               	.LFE10:
+ 343               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 I2C.cpp
+C:\Users\BHATHI~1\AppData\Local\Temp/cca5OTuT.s:2      *ABS*:0000003f __SREG__
+C:\Users\BHATHI~1\AppData\Local\Temp/cca5OTuT.s:3      *ABS*:0000003e __SP_H__
+C:\Users\BHATHI~1\AppData\Local\Temp/cca5OTuT.s:4      *ABS*:0000003d __SP_L__
+C:\Users\BHATHI~1\AppData\Local\Temp/cca5OTuT.s:5      *ABS*:00000034 __CCP__
+C:\Users\BHATHI~1\AppData\Local\Temp/cca5OTuT.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\BHATHI~1\AppData\Local\Temp/cca5OTuT.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\BHATHI~1\AppData\Local\Temp/cca5OTuT.s:18     .text:00000000 _ZN3I2CC2Ev
+C:\Users\BHATHI~1\AppData\Local\Temp/cca5OTuT.s:31     .text:00000002 _ZN3I2CC1Ev
+C:\Users\BHATHI~1\AppData\Local\Temp/cca5OTuT.s:44     .text:00000004 _ZN3I2C4initEh
+C:\Users\BHATHI~1\AppData\Local\Temp/cca5OTuT.s:66     .text:00000014 _ZN3I2C5startEv
+C:\Users\BHATHI~1\AppData\Local\Temp/cca5OTuT.s:126    .text:00000066 _ZN3I2C5writeEh
+C:\Users\BHATHI~1\AppData\Local\Temp/cca5OTuT.s:161    .text:0000008e _ZN3I2C4stopEv
+C:\Users\BHATHI~1\AppData\Local\Temp/cca5OTuT.s:183    .text:0000009e _ZN3I2C4ReadEh
+C:\Users\BHATHI~1\AppData\Local\Temp/cca5OTuT.s:212    .text:000000ba _Z11I2CReadBytePhh
+
+NO UNDEFINED SYMBOLS

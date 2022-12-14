@@ -1,0 +1,914 @@
+   1               		.file	"Framebuffer.cpp"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	_ZN11Framebuffer9drawPixelEhhh
+  18               	_ZN11Framebuffer9drawPixelEhhh:
+  19               	.LFB7:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	.LM2:
+  25 0000 67FD      		sbrc r22,7
+  26 0002 00C0      		rjmp .L4
+  27 0004 4034      		cpi r20,lo8(64)
+  28 0006 00F4      		brsh .L4
+  29 0008 E42F      		mov r30,r20
+  30 000a E695      		lsr r30
+  31 000c E695      		lsr r30
+  32 000e E695      		lsr r30
+  33 0010 70E0      		ldi r23,lo8(0)
+  34               	.LVL1:
+  35 0012 50E0      		ldi r21,lo8(0)
+  36               	.LVL2:
+  37               	.LM3:
+  38 0014 2223      		tst r18
+  39 0016 01F0      		breq .L3
+  40               	.LM4:
+  41 0018 F0E0      		ldi r31,lo8(0)
+  42 001a F695      		lsr r31
+  43 001c FE2F      		mov r31,r30
+  44 001e EE27      		clr r30
+  45 0020 F795      		ror r31
+  46 0022 E795      		ror r30
+  47 0024 E60F      		add r30,r22
+  48 0026 F71F      		adc r31,r23
+  49 0028 E80F      		add r30,r24
+  50 002a F91F      		adc r31,r25
+  51 002c 4770      		andi r20,lo8(7)
+  52 002e 5070      		andi r21,hi8(7)
+  53               	.LVL3:
+  54 0030 81E0      		ldi r24,lo8(1)
+  55 0032 90E0      		ldi r25,hi8(1)
+  56               	.LVL4:
+  57 0034 00C0      		rjmp 2f
+  58 0036 880F      	1:	lsl r24
+  59 0038 991F      		rol r25
+  60 003a 4A95      	2:	dec r20
+  61 003c 02F4      		brpl 1b
+  62 003e 2081      		ld r18,Z
+  63               	.LVL5:
+  64 0040 282B      		or r18,r24
+  65 0042 2083      		st Z,r18
+  66 0044 0895      		ret
+  67               	.LVL6:
+  68               	.L3:
+  69               	.LM5:
+  70 0046 F0E0      		ldi r31,lo8(0)
+  71 0048 F695      		lsr r31
+  72 004a FE2F      		mov r31,r30
+  73 004c EE27      		clr r30
+  74 004e F795      		ror r31
+  75 0050 E795      		ror r30
+  76               	.LVL7:
+  77 0052 E60F      		add r30,r22
+  78 0054 F71F      		adc r31,r23
+  79 0056 E80F      		add r30,r24
+  80 0058 F91F      		adc r31,r25
+  81 005a 4770      		andi r20,lo8(7)
+  82 005c 5070      		andi r21,hi8(7)
+  83               	.LVL8:
+  84 005e 81E0      		ldi r24,lo8(1)
+  85 0060 90E0      		ldi r25,hi8(1)
+  86               	.LVL9:
+  87 0062 00C0      		rjmp 2f
+  88 0064 880F      	1:	lsl r24
+  89 0066 991F      		rol r25
+  90 0068 4A95      	2:	dec r20
+  91 006a 02F4      		brpl 1b
+  92 006c 8095      		com r24
+  93 006e 2081      		ld r18,Z
+  94 0070 2823      		and r18,r24
+  95 0072 2083      		st Z,r18
+  96               	.LVL10:
+  97               	.L4:
+  98 0074 0895      		ret
+  99               	.LFE7:
+ 101               	.global	_ZN11Framebuffer10drawBufferEPKh
+ 103               	_ZN11Framebuffer10drawBufferEPKh:
+ 104               	.LFB6:
+ 105               	.LM6:
+ 106               	.LVL11:
+ 107 0076 AF92      		push r10
+ 108 0078 BF92      		push r11
+ 109 007a CF92      		push r12
+ 110 007c DF92      		push r13
+ 111 007e EF92      		push r14
+ 112 0080 FF92      		push r15
+ 113 0082 0F93      		push r16
+ 114 0084 1F93      		push r17
+ 115 0086 CF93      		push r28
+ 116 0088 DF93      		push r29
+ 117               	/* prologue: function */
+ 118               	/* frame size = 0 */
+ 119 008a 7C01      		movw r14,r24
+ 120 008c 6B01      		movw r12,r22
+ 121               	.LM7:
+ 122 008e 00E0      		ldi r16,lo8(0)
+ 123               	.LVL12:
+ 124 0090 C0E0      		ldi r28,lo8(0)
+ 125 0092 D0E0      		ldi r29,hi8(0)
+ 126               	.LBB10:
+ 127               	.LBB11:
+ 128               	.LBB12:
+ 129               	.LM8:
+ 130 0094 40E8      		ldi r20,lo8(128)
+ 131 0096 A42E      		mov r10,r20
+ 132 0098 B12C      		mov r11,__zero_reg__
+ 133 009a 00C0      		rjmp .L6
+ 134               	.LVL13:
+ 135               	.L9:
+ 136               	.LBB13:
+ 137               	.LM9:
+ 138 009c 812F      		mov r24,r17
+ 139 009e 8695      		lsr r24
+ 140 00a0 8695      		lsr r24
+ 141 00a2 8695      		lsr r24
+ 142 00a4 FE01      		movw r30,r28
+ 143 00a6 E80F      		add r30,r24
+ 144 00a8 F11D      		adc r31,__zero_reg__
+ 145 00aa EC0D      		add r30,r12
+ 146 00ac FD1D      		adc r31,r13
+ 147               	/* #APP */
+ 148               	 ;  56 "Framebuffer.cpp" 1
+ 149 00ae E491      		lpm r30, Z
+ 150               		
+ 151               	 ;  0 "" 2
+ 152               	.LVL14:
+ 153               	/* #NOAPP */
+ 154               	.LBE13:
+ 155               	.LM10:
+ 156 00b0 2E2F      		mov r18,r30
+ 157 00b2 30E0      		ldi r19,lo8(0)
+ 158               	.LVL15:
+ 159 00b4 812F      		mov r24,r17
+ 160 00b6 8770      		andi r24,lo8(7)
+ 161 00b8 A501      		movw r20,r10
+ 162 00ba 00C0      		rjmp 2f
+ 163 00bc 5595      	1:	asr r21
+ 164 00be 4795      		ror r20
+ 165 00c0 8A95      	2:	dec r24
+ 166 00c2 02F4      		brpl 1b
+ 167 00c4 2423      		and r18,r20
+ 168 00c6 3523      		and r19,r21
+ 169               	.LVL16:
+ 170 00c8 232B      		or r18,r19
+ 171 00ca 01F0      		breq .L7
+ 172               	.LM11:
+ 173 00cc C701      		movw r24,r14
+ 174 00ce 612F      		mov r22,r17
+ 175 00d0 402F      		mov r20,r16
+ 176 00d2 21E0      		ldi r18,lo8(1)
+ 177               	.LVL17:
+ 178 00d4 00C0      		rjmp .L13
+ 179               	.LVL18:
+ 180               	.L7:
+ 181               	.LM12:
+ 182 00d6 C701      		movw r24,r14
+ 183 00d8 612F      		mov r22,r17
+ 184 00da 402F      		mov r20,r16
+ 185 00dc 20E0      		ldi r18,lo8(0)
+ 186               	.LVL19:
+ 187               	.L13:
+ 188 00de 0E94 0000 		call _ZN11Framebuffer9drawPixelEhhh
+ 189               	.LVL20:
+ 190               	.LM13:
+ 191 00e2 1F5F      		subi r17,lo8(-(1))
+ 192 00e4 1038      		cpi r17,lo8(-128)
+ 193 00e6 01F4      		brne .L9
+ 194               	.LBE12:
+ 195               	.LM14:
+ 196 00e8 0F5F      		subi r16,lo8(-(1))
+ 197 00ea 6096      		adiw r28,16
+ 198 00ec 0034      		cpi r16,lo8(64)
+ 199 00ee 01F0      		breq .L11
+ 200               	.LVL21:
+ 201               	.L6:
+ 202 00f0 10E0      		ldi r17,lo8(0)
+ 203 00f2 00C0      		rjmp .L9
+ 204               	.LVL22:
+ 205               	.L11:
+ 206               	/* epilogue start */
+ 207               	.LBE11:
+ 208               	.LBE10:
+ 209               	.LM15:
+ 210 00f4 DF91      		pop r29
+ 211 00f6 CF91      		pop r28
+ 212 00f8 1F91      		pop r17
+ 213               	.LVL23:
+ 214 00fa 0F91      		pop r16
+ 215               	.LVL24:
+ 216 00fc FF90      		pop r15
+ 217 00fe EF90      		pop r14
+ 218               	.LVL25:
+ 219 0100 DF90      		pop r13
+ 220 0102 CF90      		pop r12
+ 221               	.LVL26:
+ 222 0104 BF90      		pop r11
+ 223 0106 AF90      		pop r10
+ 224 0108 0895      		ret
+ 225               	.LFE6:
+ 227               	.global	_ZN11Framebuffer10drawBitmapEPKhhhhh
+ 229               	_ZN11Framebuffer10drawBitmapEPKhhhhh:
+ 230               	.LFB5:
+ 231               	.LM16:
+ 232               	.LVL27:
+ 233 010a 3F92      		push r3
+ 234 010c 4F92      		push r4
+ 235 010e 5F92      		push r5
+ 236 0110 6F92      		push r6
+ 237 0112 7F92      		push r7
+ 238 0114 8F92      		push r8
+ 239 0116 9F92      		push r9
+ 240 0118 AF92      		push r10
+ 241 011a BF92      		push r11
+ 242 011c CF92      		push r12
+ 243 011e DF92      		push r13
+ 244 0120 EF92      		push r14
+ 245               	.LVL28:
+ 246 0122 FF92      		push r15
+ 247 0124 0F93      		push r16
+ 248               	.LVL29:
+ 249 0126 1F93      		push r17
+ 250 0128 CF93      		push r28
+ 251 012a DF93      		push r29
+ 252               	/* prologue: function */
+ 253               	/* frame size = 0 */
+ 254 012c 5C01      		movw r10,r24
+ 255 012e 4B01      		movw r8,r22
+ 256 0130 342E      		mov r3,r20
+ 257 0132 722E      		mov r7,r18
+ 258 0134 602E      		mov r6,r16
+ 259               	.LVL30:
+ 260 0136 DE2C      		mov r13,r14
+ 261               	.LVL31:
+ 262               	.LM17:
+ 263 0138 C22F      		mov r28,r18
+ 264 013a D0E0      		ldi r29,lo8(0)
+ 265 013c 2796      		adiw r28,7
+ 266 013e 63E0      		ldi r22,3
+ 267 0140 D695      	1:	lsr r29
+ 268 0142 C795      		ror r28
+ 269 0144 6A95      		dec r22
+ 270 0146 01F4      		brne 1b
+ 271               	.LVL32:
+ 272 0148 CC24      		clr r12
+ 273               	.LVL33:
+ 274 014a 00E0      		ldi r16,lo8(0)
+ 275 014c 10E0      		ldi r17,hi8(0)
+ 276               	.LVL34:
+ 277               	.LBB14:
+ 278               	.LBB15:
+ 279               	.LBB16:
+ 280               	.LM18:
+ 281 014e 50E8      		ldi r21,lo8(128)
+ 282 0150 452E      		mov r4,r21
+ 283 0152 512C      		mov r5,__zero_reg__
+ 284 0154 00C0      		rjmp .L15
+ 285               	.LVL35:
+ 286               	.L18:
+ 287               	.LBB17:
+ 288               	.LM19:
+ 289 0156 8F2D      		mov r24,r15
+ 290 0158 8695      		lsr r24
+ 291 015a 8695      		lsr r24
+ 292 015c 8695      		lsr r24
+ 293 015e F801      		movw r30,r16
+ 294 0160 E80F      		add r30,r24
+ 295 0162 F11D      		adc r31,__zero_reg__
+ 296 0164 E80D      		add r30,r8
+ 297 0166 F91D      		adc r31,r9
+ 298               	/* #APP */
+ 299               	 ;  41 "Framebuffer.cpp" 1
+ 300 0168 E491      		lpm r30, Z
+ 301               		
+ 302               	 ;  0 "" 2
+ 303               	.LVL36:
+ 304               	/* #NOAPP */
+ 305               	.LBE17:
+ 306               	.LM20:
+ 307 016a 2E2F      		mov r18,r30
+ 308 016c 30E0      		ldi r19,lo8(0)
+ 309               	.LVL37:
+ 310 016e 8F2D      		mov r24,r15
+ 311 0170 8770      		andi r24,lo8(7)
+ 312 0172 A201      		movw r20,r4
+ 313 0174 00C0      		rjmp 2f
+ 314 0176 5595      	1:	asr r21
+ 315 0178 4795      		ror r20
+ 316 017a 8A95      	2:	dec r24
+ 317 017c 02F4      		brpl 1b
+ 318 017e 2423      		and r18,r20
+ 319 0180 3523      		and r19,r21
+ 320               	.LVL38:
+ 321 0182 232B      		or r18,r19
+ 322 0184 01F0      		breq .L16
+ 323               	.LM21:
+ 324 0186 C501      		movw r24,r10
+ 325 0188 6E2D      		mov r22,r14
+ 326 018a 4D2D      		mov r20,r13
+ 327 018c 21E0      		ldi r18,lo8(1)
+ 328               	.LVL39:
+ 329 018e 00C0      		rjmp .L22
+ 330               	.LVL40:
+ 331               	.L16:
+ 332               	.LM22:
+ 333 0190 C501      		movw r24,r10
+ 334 0192 6E2D      		mov r22,r14
+ 335 0194 4D2D      		mov r20,r13
+ 336 0196 20E0      		ldi r18,lo8(0)
+ 337               	.LVL41:
+ 338               	.L22:
+ 339 0198 0E94 0000 		call _ZN11Framebuffer9drawPixelEhhh
+ 340               	.LVL42:
+ 341               	.LM23:
+ 342 019c F394      		inc r15
+ 343 019e E394      		inc r14
+ 344               	.LVL43:
+ 345               	.L20:
+ 346 01a0 F714      		cp r15,r7
+ 347 01a2 00F0      		brlo .L18
+ 348               	.LBE16:
+ 349               	.LM24:
+ 350 01a4 C394      		inc r12
+ 351 01a6 D394      		inc r13
+ 352 01a8 0C0F      		add r16,r28
+ 353 01aa 1D1F      		adc r17,r29
+ 354               	.LVL44:
+ 355               	.L15:
+ 356 01ac C314      		cp r12,r3
+ 357 01ae 00F4      		brsh .L21
+ 358 01b0 E62C      		mov r14,r6
+ 359 01b2 FF24      		clr r15
+ 360 01b4 00C0      		rjmp .L20
+ 361               	.LVL45:
+ 362               	.L21:
+ 363               	/* epilogue start */
+ 364               	.LBE15:
+ 365               	.LBE14:
+ 366               	.LM25:
+ 367 01b6 DF91      		pop r29
+ 368 01b8 CF91      		pop r28
+ 369 01ba 1F91      		pop r17
+ 370 01bc 0F91      		pop r16
+ 371 01be FF90      		pop r15
+ 372               	.LVL46:
+ 373 01c0 EF90      		pop r14
+ 374 01c2 DF90      		pop r13
+ 375               	.LVL47:
+ 376 01c4 CF90      		pop r12
+ 377               	.LVL48:
+ 378 01c6 BF90      		pop r11
+ 379 01c8 AF90      		pop r10
+ 380               	.LVL49:
+ 381 01ca 9F90      		pop r9
+ 382 01cc 8F90      		pop r8
+ 383               	.LVL50:
+ 384 01ce 7F90      		pop r7
+ 385               	.LVL51:
+ 386 01d0 6F90      		pop r6
+ 387               	.LVL52:
+ 388 01d2 5F90      		pop r5
+ 389 01d4 4F90      		pop r4
+ 390 01d6 3F90      		pop r3
+ 391               	.LVL53:
+ 392 01d8 0895      		ret
+ 393               	.LFE5:
+ 395               	.global	_ZN11Framebuffer9drawPixelEhh
+ 397               	_ZN11Framebuffer9drawPixelEhh:
+ 398               	.LFB8:
+ 399               	.LM26:
+ 400               	.LVL54:
+ 401               	/* prologue: function */
+ 402               	/* frame size = 0 */
+ 403               	.LM27:
+ 404 01da 67FD      		sbrc r22,7
+ 405 01dc 00C0      		rjmp .L25
+ 406 01de 4034      		cpi r20,lo8(64)
+ 407 01e0 00F4      		brsh .L25
+ 408               	.LM28:
+ 409 01e2 E42F      		mov r30,r20
+ 410 01e4 E695      		lsr r30
+ 411 01e6 E695      		lsr r30
+ 412 01e8 E695      		lsr r30
+ 413 01ea F0E0      		ldi r31,lo8(0)
+ 414 01ec F695      		lsr r31
+ 415 01ee FE2F      		mov r31,r30
+ 416 01f0 EE27      		clr r30
+ 417 01f2 F795      		ror r31
+ 418 01f4 E795      		ror r30
+ 419 01f6 E60F      		add r30,r22
+ 420 01f8 F11D      		adc r31,__zero_reg__
+ 421 01fa E80F      		add r30,r24
+ 422 01fc F91F      		adc r31,r25
+ 423 01fe 4770      		andi r20,lo8(7)
+ 424               	.LVL55:
+ 425 0200 81E0      		ldi r24,lo8(1)
+ 426 0202 90E0      		ldi r25,hi8(1)
+ 427               	.LVL56:
+ 428 0204 00C0      		rjmp 2f
+ 429 0206 880F      	1:	lsl r24
+ 430 0208 991F      		rol r25
+ 431 020a 4A95      	2:	dec r20
+ 432 020c 02F4      		brpl 1b
+ 433 020e 2081      		ld r18,Z
+ 434 0210 282B      		or r18,r24
+ 435 0212 2083      		st Z,r18
+ 436               	.LVL57:
+ 437               	.L25:
+ 438 0214 0895      		ret
+ 439               	.LFE8:
+ 441               	.global	_ZN11Framebuffer9drawVLineEhhh
+ 443               	_ZN11Framebuffer9drawVLineEhhh:
+ 444               	.LFB9:
+ 445               	.LM29:
+ 446               	.LVL58:
+ 447 0216 EF92      		push r14
+ 448 0218 FF92      		push r15
+ 449 021a 0F93      		push r16
+ 450 021c 1F93      		push r17
+ 451 021e CF93      		push r28
+ 452 0220 DF93      		push r29
+ 453               	/* prologue: function */
+ 454               	/* frame size = 0 */
+ 455 0222 EC01      		movw r28,r24
+ 456 0224 E62E      		mov r14,r22
+ 457 0226 F42E      		mov r15,r20
+ 458 0228 022F      		mov r16,r18
+ 459               	.LM30:
+ 460 022a 10E0      		ldi r17,lo8(0)
+ 461               	.LVL59:
+ 462 022c 00C0      		rjmp .L27
+ 463               	.LVL60:
+ 464               	.L28:
+ 465               	.LBB18:
+ 466               	.LM31:
+ 467 022e 412F      		mov r20,r17
+ 468 0230 4F0D      		add r20,r15
+ 469 0232 CE01      		movw r24,r28
+ 470 0234 6E2D      		mov r22,r14
+ 471 0236 0E94 0000 		call _ZN11Framebuffer9drawPixelEhh
+ 472               	.LM32:
+ 473 023a 1F5F      		subi r17,lo8(-(1))
+ 474               	.LVL61:
+ 475               	.L27:
+ 476 023c 1017      		cp r17,r16
+ 477 023e 00F0      		brlo .L28
+ 478               	/* epilogue start */
+ 479               	.LBE18:
+ 480               	.LM33:
+ 481 0240 DF91      		pop r29
+ 482 0242 CF91      		pop r28
+ 483               	.LVL62:
+ 484 0244 1F91      		pop r17
+ 485               	.LVL63:
+ 486 0246 0F91      		pop r16
+ 487               	.LVL64:
+ 488 0248 FF90      		pop r15
+ 489               	.LVL65:
+ 490 024a EF90      		pop r14
+ 491               	.LVL66:
+ 492 024c 0895      		ret
+ 493               	.LFE9:
+ 495               	.global	_ZN11Framebuffer9drawHLineEhhh
+ 497               	_ZN11Framebuffer9drawHLineEhhh:
+ 498               	.LFB10:
+ 499               	.LM34:
+ 500               	.LVL67:
+ 501 024e EF92      		push r14
+ 502 0250 FF92      		push r15
+ 503 0252 0F93      		push r16
+ 504 0254 1F93      		push r17
+ 505 0256 CF93      		push r28
+ 506 0258 DF93      		push r29
+ 507               	/* prologue: function */
+ 508               	/* frame size = 0 */
+ 509 025a EC01      		movw r28,r24
+ 510 025c E62E      		mov r14,r22
+ 511 025e F42E      		mov r15,r20
+ 512 0260 022F      		mov r16,r18
+ 513               	.LM35:
+ 514 0262 10E0      		ldi r17,lo8(0)
+ 515               	.LVL68:
+ 516 0264 00C0      		rjmp .L31
+ 517               	.LVL69:
+ 518               	.L32:
+ 519               	.LBB19:
+ 520               	.LM36:
+ 521 0266 612F      		mov r22,r17
+ 522 0268 6E0D      		add r22,r14
+ 523 026a CE01      		movw r24,r28
+ 524 026c 4F2D      		mov r20,r15
+ 525 026e 0E94 0000 		call _ZN11Framebuffer9drawPixelEhh
+ 526               	.LM37:
+ 527 0272 1F5F      		subi r17,lo8(-(1))
+ 528               	.LVL70:
+ 529               	.L31:
+ 530 0274 1017      		cp r17,r16
+ 531 0276 00F0      		brlo .L32
+ 532               	/* epilogue start */
+ 533               	.LBE19:
+ 534               	.LM38:
+ 535 0278 DF91      		pop r29
+ 536 027a CF91      		pop r28
+ 537               	.LVL71:
+ 538 027c 1F91      		pop r17
+ 539               	.LVL72:
+ 540 027e 0F91      		pop r16
+ 541               	.LVL73:
+ 542 0280 FF90      		pop r15
+ 543               	.LVL74:
+ 544 0282 EF90      		pop r14
+ 545               	.LVL75:
+ 546 0284 0895      		ret
+ 547               	.LFE10:
+ 549               	.global	_ZN11Framebuffer13drawRectangleEhhhh
+ 551               	_ZN11Framebuffer13drawRectangleEhhhh:
+ 552               	.LFB11:
+ 553               	.LM39:
+ 554               	.LVL76:
+ 555 0286 AF92      		push r10
+ 556 0288 BF92      		push r11
+ 557 028a CF92      		push r12
+ 558 028c DF92      		push r13
+ 559 028e EF92      		push r14
+ 560 0290 FF92      		push r15
+ 561 0292 0F93      		push r16
+ 562               	.LVL77:
+ 563 0294 1F93      		push r17
+ 564               	/* prologue: function */
+ 565               	/* frame size = 0 */
+ 566 0296 7C01      		movw r14,r24
+ 567 0298 D62E      		mov r13,r22
+ 568 029a C42E      		mov r12,r20
+ 569 029c A22E      		mov r10,r18
+ 570               	.LBB20:
+ 571               	.LM40:
+ 572 029e 122F      		mov r17,r18
+ 573               	.LVL78:
+ 574 02a0 161B      		sub r17,r22
+ 575 02a2 1F5F      		subi r17,lo8(-(1))
+ 576               	.LM41:
+ 577 02a4 B02E      		mov r11,r16
+ 578               	.LVL79:
+ 579 02a6 B41A      		sub r11,r20
+ 580               	.LM42:
+ 581 02a8 212F      		mov r18,r17
+ 582               	.LVL80:
+ 583 02aa 0E94 0000 		call _ZN11Framebuffer9drawHLineEhhh
+ 584               	.LVL81:
+ 585               	.LM43:
+ 586 02ae C701      		movw r24,r14
+ 587 02b0 6D2D      		mov r22,r13
+ 588 02b2 402F      		mov r20,r16
+ 589 02b4 212F      		mov r18,r17
+ 590 02b6 0E94 0000 		call _ZN11Framebuffer9drawHLineEhhh
+ 591               	.LM44:
+ 592 02ba C701      		movw r24,r14
+ 593 02bc 6D2D      		mov r22,r13
+ 594 02be 4C2D      		mov r20,r12
+ 595 02c0 2B2D      		mov r18,r11
+ 596 02c2 0E94 0000 		call _ZN11Framebuffer9drawVLineEhhh
+ 597               	.LM45:
+ 598 02c6 C701      		movw r24,r14
+ 599 02c8 6A2D      		mov r22,r10
+ 600 02ca 4C2D      		mov r20,r12
+ 601 02cc 2B2D      		mov r18,r11
+ 602 02ce 0E94 0000 		call _ZN11Framebuffer9drawVLineEhhh
+ 603               	/* epilogue start */
+ 604               	.LBE20:
+ 605               	.LM46:
+ 606 02d2 1F91      		pop r17
+ 607               	.LVL82:
+ 608 02d4 0F91      		pop r16
+ 609               	.LVL83:
+ 610 02d6 FF90      		pop r15
+ 611 02d8 EF90      		pop r14
+ 612               	.LVL84:
+ 613 02da DF90      		pop r13
+ 614               	.LVL85:
+ 615 02dc CF90      		pop r12
+ 616               	.LVL86:
+ 617 02de BF90      		pop r11
+ 618               	.LVL87:
+ 619 02e0 AF90      		pop r10
+ 620               	.LVL88:
+ 621 02e2 0895      		ret
+ 622               	.LFE11:
+ 624               	.global	_ZN11Framebuffer13drawRectangleEhhhhh
+ 626               	_ZN11Framebuffer13drawRectangleEhhhhh:
+ 627               	.LFB12:
+ 628               	.LM47:
+ 629               	.LVL89:
+ 630 02e4 6F92      		push r6
+ 631 02e6 7F92      		push r7
+ 632 02e8 8F92      		push r8
+ 633 02ea 9F92      		push r9
+ 634 02ec AF92      		push r10
+ 635 02ee BF92      		push r11
+ 636 02f0 DF92      		push r13
+ 637 02f2 EF92      		push r14
+ 638               	.LVL90:
+ 639 02f4 FF92      		push r15
+ 640 02f6 0F93      		push r16
+ 641               	.LVL91:
+ 642 02f8 1F93      		push r17
+ 643 02fa CF93      		push r28
+ 644 02fc DF93      		push r29
+ 645               	/* prologue: function */
+ 646               	/* frame size = 0 */
+ 647 02fe 3C01      		movw r6,r24
+ 648 0300 F62E      		mov r15,r22
+ 649 0302 D42E      		mov r13,r20
+ 650 0304 302F      		mov r19,r16
+ 651               	.LVL92:
+ 652               	.LBB21:
+ 653               	.LM48:
+ 654 0306 EE20      		tst r14
+ 655               	.LVL93:
+ 656 0308 01F4      		brne .L37
+ 657               	.LVL94:
+ 658               	.LM49:
+ 659 030a 0E94 0000 		call _ZN11Framebuffer13drawRectangleEhhhh
+ 660               	.LVL95:
+ 661 030e 00C0      		rjmp .L42
+ 662               	.LVL96:
+ 663               	.L37:
+ 664               	.LBB22:
+ 665               	.LM50:
+ 666 0310 261B      		sub r18,r22
+ 667               	.LVL97:
+ 668 0312 2F5F      		subi r18,lo8(-(1))
+ 669               	.LM51:
+ 670 0314 341B      		sub r19,r20
+ 671 0316 00E0      		ldi r16,lo8(0)
+ 672 0318 10E0      		ldi r17,hi8(0)
+ 673               	.LVL98:
+ 674               	.LBB23:
+ 675               	.LM52:
+ 676 031a 822E      		mov r8,r18
+ 677               	.LVL99:
+ 678 031c 9924      		clr r9
+ 679               	.LVL100:
+ 680               	.LBB24:
+ 681               	.LM53:
+ 682 031e A32E      		mov r10,r19
+ 683               	.LVL101:
+ 684 0320 BB24      		clr r11
+ 685               	.LVL102:
+ 686 0322 00C0      		rjmp .L39
+ 687               	.LVL103:
+ 688               	.L40:
+ 689               	.LM54:
+ 690 0324 4D2D      		mov r20,r13
+ 691               	.LVL104:
+ 692 0326 4C0F      		add r20,r28
+ 693 0328 C301      		movw r24,r6
+ 694 032a 6E2D      		mov r22,r14
+ 695 032c 0E94 0000 		call _ZN11Framebuffer9drawPixelEhh
+ 696               	.LVL105:
+ 697               	.LM55:
+ 698 0330 2196      		adiw r28,1
+ 699               	.LVL106:
+ 700               	.L41:
+ 701 0332 AC16      		cp r10,r28
+ 702 0334 BD06      		cpc r11,r29
+ 703 0336 04F4      		brge .L40
+ 704               	.LVL107:
+ 705               	.LBE24:
+ 706               	.LM56:
+ 707 0338 0F5F      		subi r16,lo8(-(1))
+ 708 033a 1F4F      		sbci r17,hi8(-(1))
+ 709               	.LVL108:
+ 710               	.L39:
+ 711 033c 0815      		cp r16,r8
+ 712 033e 1905      		cpc r17,r9
+ 713 0340 04F4      		brge .L42
+ 714 0342 C0E0      		ldi r28,lo8(0)
+ 715 0344 D0E0      		ldi r29,hi8(0)
+ 716               	.LBB25:
+ 717               	.LM57:
+ 718 0346 EF2C      		mov r14,r15
+ 719               	.LVL109:
+ 720 0348 E00E      		add r14,r16
+ 721 034a 00C0      		rjmp .L41
+ 722               	.LVL110:
+ 723               	.L42:
+ 724               	/* epilogue start */
+ 725               	.LBE25:
+ 726               	.LBE23:
+ 727               	.LBE22:
+ 728               	.LBE21:
+ 729               	.LM58:
+ 730 034c DF91      		pop r29
+ 731 034e CF91      		pop r28
+ 732               	.LVL111:
+ 733 0350 1F91      		pop r17
+ 734 0352 0F91      		pop r16
+ 735               	.LVL112:
+ 736 0354 FF90      		pop r15
+ 737               	.LVL113:
+ 738 0356 EF90      		pop r14
+ 739               	.LVL114:
+ 740 0358 DF90      		pop r13
+ 741               	.LVL115:
+ 742 035a BF90      		pop r11
+ 743               	.LVL116:
+ 744 035c AF90      		pop r10
+ 745               	.LVL117:
+ 746 035e 9F90      		pop r9
+ 747               	.LVL118:
+ 748 0360 8F90      		pop r8
+ 749               	.LVL119:
+ 750 0362 7F90      		pop r7
+ 751 0364 6F90      		pop r6
+ 752               	.LVL120:
+ 753 0366 0895      		ret
+ 754               	.LFE12:
+ 756               	.global	_ZN11Framebuffer5clearEv
+ 758               	_ZN11Framebuffer5clearEv:
+ 759               	.LFB13:
+ 760               	.LM59:
+ 761               	.LVL121:
+ 762               	/* prologue: function */
+ 763               	/* frame size = 0 */
+ 764               	.LM60:
+ 765 0368 20E0      		ldi r18,lo8(0)
+ 766 036a 30E0      		ldi r19,hi8(0)
+ 767               	.LVL122:
+ 768               	.L44:
+ 769               	.LBB26:
+ 770               	.LM61:
+ 771 036c FC01      		movw r30,r24
+ 772 036e E20F      		add r30,r18
+ 773 0370 F31F      		adc r31,r19
+ 774 0372 1082      		st Z,__zero_reg__
+ 775               	.LM62:
+ 776 0374 2F5F      		subi r18,lo8(-(1))
+ 777 0376 3F4F      		sbci r19,hi8(-(1))
+ 778 0378 44E0      		ldi r20,hi8(1024)
+ 779 037a 2030      		cpi r18,lo8(1024)
+ 780 037c 3407      		cpc r19,r20
+ 781 037e 01F4      		brne .L44
+ 782               	/* epilogue start */
+ 783               	.LBE26:
+ 784               	.LM63:
+ 785 0380 0895      		ret
+ 786               	.LFE13:
+ 788               	.global	_ZN11Framebuffer4showEv
+ 790               	_ZN11Framebuffer4showEv:
+ 791               	.LFB15:
+ 792               	.LM64:
+ 793               	.LVL123:
+ 794               	/* prologue: function */
+ 795               	/* frame size = 0 */
+ 796 0382 BC01      		movw r22,r24
+ 797               	.LM65:
+ 798 0384 8050      		subi r24,lo8(-(1024))
+ 799 0386 9C4F      		sbci r25,hi8(-(1024))
+ 800               	.LVL124:
+ 801 0388 0E94 0000 		call _ZN7SSD130615sendFramebufferEPh
+ 802               	.LVL125:
+ 803               	/* epilogue start */
+ 804               	.LM66:
+ 805 038c 0895      		ret
+ 806               	.LFE15:
+ 808               	.global	_ZN11Framebuffer6invertEh
+ 810               	_ZN11Framebuffer6invertEh:
+ 811               	.LFB14:
+ 812               	.LM67:
+ 813               	.LVL126:
+ 814               	/* prologue: function */
+ 815               	/* frame size = 0 */
+ 816               	.LM68:
+ 817 038e 8050      		subi r24,lo8(-(1024))
+ 818 0390 9C4F      		sbci r25,hi8(-(1024))
+ 819               	.LVL127:
+ 820 0392 0E94 0000 		call _ZN7SSD13066invertEh
+ 821               	.LVL128:
+ 822               	/* epilogue start */
+ 823               	.LM69:
+ 824 0396 0895      		ret
+ 825               	.LFE14:
+ 827               	.global	_ZN11FramebufferC1Ev
+ 829               	_ZN11FramebufferC1Ev:
+ 830               	.LFB4:
+ 831               	.LM70:
+ 832               	.LVL129:
+ 833 0398 CF93      		push r28
+ 834 039a DF93      		push r29
+ 835               	/* prologue: function */
+ 836               	/* frame size = 0 */
+ 837 039c EC01      		movw r28,r24
+ 838               	.LBB27:
+ 839               	.LM71:
+ 840 039e 8050      		subi r24,lo8(-(1024))
+ 841 03a0 9C4F      		sbci r25,hi8(-(1024))
+ 842               	.LVL130:
+ 843 03a2 0E94 0000 		call _ZN7SSD1306C1Ev
+ 844 03a6 80E0      		ldi r24,lo8(0)
+ 845 03a8 90E0      		ldi r25,hi8(0)
+ 846               	.LVL131:
+ 847               	.L52:
+ 848               	.LBB28:
+ 849               	.LBB29:
+ 850               	.LBB30:
+ 851               	.LM72:
+ 852 03aa FE01      		movw r30,r28
+ 853 03ac E80F      		add r30,r24
+ 854 03ae F91F      		adc r31,r25
+ 855 03b0 1082      		st Z,__zero_reg__
+ 856               	.LM73:
+ 857 03b2 0196      		adiw r24,1
+ 858 03b4 24E0      		ldi r18,hi8(1024)
+ 859 03b6 8030      		cpi r24,lo8(1024)
+ 860 03b8 9207      		cpc r25,r18
+ 861 03ba 01F4      		brne .L52
+ 862               	/* epilogue start */
+ 863               	.LBE30:
+ 864               	.LBE29:
+ 865               	.LBE28:
+ 866               	.LBE27:
+ 867               	.LM74:
+ 868 03bc DF91      		pop r29
+ 869 03be CF91      		pop r28
+ 870               	.LVL132:
+ 871 03c0 0895      		ret
+ 872               	.LFE4:
+ 874               	.global	_ZN11FramebufferC2Ev
+ 876               	_ZN11FramebufferC2Ev:
+ 877               	.LFB3:
+ 878               	.LM75:
+ 879               	.LVL133:
+ 880 03c2 CF93      		push r28
+ 881 03c4 DF93      		push r29
+ 882               	/* prologue: function */
+ 883               	/* frame size = 0 */
+ 884 03c6 EC01      		movw r28,r24
+ 885               	.LBB31:
+ 886               	.LM76:
+ 887 03c8 8050      		subi r24,lo8(-(1024))
+ 888 03ca 9C4F      		sbci r25,hi8(-(1024))
+ 889               	.LVL134:
+ 890 03cc 0E94 0000 		call _ZN7SSD1306C1Ev
+ 891 03d0 80E0      		ldi r24,lo8(0)
+ 892 03d2 90E0      		ldi r25,hi8(0)
+ 893               	.LVL135:
+ 894               	.L56:
+ 895               	.LBB32:
+ 896               	.LBB33:
+ 897               	.LBB34:
+ 898               	.LM77:
+ 899 03d4 FE01      		movw r30,r28
+ 900 03d6 E80F      		add r30,r24
+ 901 03d8 F91F      		adc r31,r25
+ 902 03da 1082      		st Z,__zero_reg__
+ 903               	.LM78:
+ 904 03dc 0196      		adiw r24,1
+ 905 03de 24E0      		ldi r18,hi8(1024)
+ 906 03e0 8030      		cpi r24,lo8(1024)
+ 907 03e2 9207      		cpc r25,r18
+ 908 03e4 01F4      		brne .L56
+ 909               	/* epilogue start */
+ 910               	.LBE34:
+ 911               	.LBE33:
+ 912               	.LBE32:
+ 913               	.LBE31:
+ 914               	.LM79:
+ 915 03e6 DF91      		pop r29
+ 916 03e8 CF91      		pop r28
+ 917               	.LVL136:
+ 918 03ea 0895      		ret
+ 919               	.LFE3:
+ 1041               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 Framebuffer.cpp
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:2      *ABS*:0000003f __SREG__
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:3      *ABS*:0000003e __SP_H__
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:4      *ABS*:0000003d __SP_L__
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:5      *ABS*:00000034 __CCP__
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:18     .text:00000000 _ZN11Framebuffer9drawPixelEhhh
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:103    .text:00000076 _ZN11Framebuffer10drawBufferEPKh
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:229    .text:0000010a _ZN11Framebuffer10drawBitmapEPKhhhhh
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:397    .text:000001da _ZN11Framebuffer9drawPixelEhh
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:443    .text:00000216 _ZN11Framebuffer9drawVLineEhhh
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:497    .text:0000024e _ZN11Framebuffer9drawHLineEhhh
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:551    .text:00000286 _ZN11Framebuffer13drawRectangleEhhhh
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:626    .text:000002e4 _ZN11Framebuffer13drawRectangleEhhhhh
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:758    .text:00000368 _ZN11Framebuffer5clearEv
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:790    .text:00000382 _ZN11Framebuffer4showEv
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:810    .text:0000038e _ZN11Framebuffer6invertEh
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:829    .text:00000398 _ZN11FramebufferC1Ev
+C:\Users\BHATHI~1\AppData\Local\Temp/ccZ8VXjr.s:876    .text:000003c2 _ZN11FramebufferC2Ev
+
+UNDEFINED SYMBOLS
+_ZN7SSD130615sendFramebufferEPh
+_ZN7SSD13066invertEh
+_ZN7SSD1306C1Ev
